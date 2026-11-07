@@ -1,5 +1,12 @@
 /*
  * glow-engine.js
+ *
+ * 【第三方来源声明】
+ * 本文件的辉光 CPU 引擎照搬自 PixelRunner / 小T修图助手（像素起子）V2.8.1，
+ * Copyright 2026 XIAOTsune，按 Apache License 2.0 授权，并已由本项目作者修改
+ * （删减、改写、重命名、与项目自身代码整合）。完整署名见仓库根目录或同目录
+ * 的 NOTICE，许可证全文见 LICENSE-Apache-2.0.txt；来源作品版权不属于本项目作者。
+ *
  * 忠实地照搬参考插件（像素起子 V2.8.1）的辉光 CPU 引擎：
  *   - normalizeGlowParams : UI 参数 → 算法参数（含风格预设表）
  *   - buildSourceMask     : 源蒙版 / 高光发射层

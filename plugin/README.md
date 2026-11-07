@@ -120,6 +120,9 @@ API Key 只保存在本机浏览器存储里，不会上传到除你选择的模
 ```
 plugin/
 ├─ manifest.json          UXP 清单
+├─ NOTICE                 第三方组件署名
+├─ LICENSE                本项目 GPL-3.0 许可证
+├─ LICENSE-Apache-2.0.txt Apache-2.0 许可证（第三方来源）
 ├─ index.html             面板入口（UXP）
 ├─ styles.css             基础布局
 ├─ theme.css              中性灰白 / 深绿强调的视觉主题
@@ -191,8 +194,22 @@ plugin/
 打开 `http://127.0.0.1:8765/preview.html`。文件通过 `file://` 直接打开时，
 部分浏览器会限制本地存储，导致演示数据不完整。
 
+## 致谢与第三方组件
+
+本插件部分模块来自 / 参考了以下开源作品，完整署名与许可证条件见仓库根目录的 [NOTICE](../NOTICE)：
+
+| 作品 | 作者 | 许可证 | 对应内容 |
+| --- | --- | --- | --- |
+| PixelRunner / 小T修图助手（像素起子） | XIAOTsune | Apache-2.0 | `lib/glow-engine.js` 辉光 CPU 引擎（照搬并修改） |
+| [Blendrr / AI-Assisted-Image-Editing-for-Photoshop](https://github.com/deewong7/AI-Assisted-Image-Editing-for-Photoshop) | deewong7 | GPL-3.0 | `lib/provider-models.js` 等文件中 SeeDream / Nano Banana / Grok Imagine 的模型目录、分辨率与请求参数（改写裁剪） |
+| 图像对齐算法 | 草鱼 | GPL-3.0 | `lib/color-match.service.js` 的智能对齐相关实现（原仓库已不可访问） |
+| [ComfyUI](https://github.com/comfyanonymous/ComfyUI) | ComfyUI 作者 | GPL-3.0 | 接口与工作流格式参考（独立实现，未复制源码） |
+
+- Apache-2.0 许可证全文：[LICENSE-Apache-2.0.txt](../LICENSE-Apache-2.0.txt)
+- 本目录也附了 `NOTICE`、`LICENSE`（GPL-3.0）与 `LICENSE-Apache-2.0.txt` 副本，单独分发插件目录时请一并保留。
+
 ## 许可证
 
-本项目以 **GNU General Public License v3.0（GPL-3.0）** 开源，完整条款见仓库根目录的 [LICENSE](../LICENSE)。
+本项目以 **GNU General Public License v3.0（GPL-3.0）** 开源，完整条款见仓库根目录的 [LICENSE](../LICENSE)，本目录也附有 `LICENSE` 副本。第三方组件署名与许可证条件见 [NOTICE](../NOTICE)（本目录附有副本）。
 
 本插件代码与界面版权归作者所有，在 GPL-3.0 条款下发布。

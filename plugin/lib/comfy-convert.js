@@ -1,6 +1,10 @@
 /**
  * 幻梦AI · ComfyUI 工作流格式转换
  *
+ * 【参考声明】工作流格式与转换行为参考 ComfyUI 官方实现与文档
+ * （https://github.com/comfyanonymous/ComfyUI ，GPL-3.0）；本文件为独立实现，
+ * 未直接复制其源代码。详见仓库根目录或同目录的 NOTICE。
+ *
  * 把 ComfyUI 里保存的**界面格式**工作流转成 **API 格式**。
  *
  * 【为什么需要它】

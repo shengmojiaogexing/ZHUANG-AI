@@ -1,0 +1,108 @@
+ZHUANG-AI
+Copyright 2026 庄泽（ZhuangZe-ZERO / 零柒zero）
+https://github.com/shengmojiaogexing/ZHUANG-AI
+
+本产品包含第三方作品。其署名与许可证条件如下。
+
+说明：本项目部分模块衍生于作者此前的幻梦AI / ZHUANG-AI 修图插件（GPL-3.0），
+其中已包含下列第三方作品的衍生内容；为便于独立分发，本文件完整保留这些署名。
+
+
+====================================================================
+1. PixelRunner / 小T修图助手（像素起子）
+====================================================================
+
+Copyright 2026 XIAOTsune
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+许可证全文见同目录下的 LICENSE-Apache-2.0.txt。
+
+【本项目的修改声明】
+按 Apache License 2.0 第 4(b) 条声明：本项目 plugin/lib/glow-engine.js 中的
+辉光 CPU 引擎照搬自上述作品（像素起子 V2.8.1），并已由本项目作者修改 ——
+包括删减、改写、重命名，以及与项目自身代码的整合。工具箱相关交互的实现
+思路亦有参考该作品，界面与业务代码为本项目重写。
+
+【许可证关系】
+来源作品：Apache License 2.0
+本项目整体：GNU GPL v3.0（见仓库根目录的 LICENSE）
+两者兼容，方向为 Apache-2.0 → GPL-3.0（单向兼容）。
+来源作品本身仍按其原许可证授权，其版权不属于本项目作者。
+
+
+====================================================================
+2. Blendrr / AI-Assisted-Image-Editing-for-Photoshop
+====================================================================
+
+Copyright 2026 deewong7
+https://github.com/deewong7/AI-Assisted-Image-Editing-for-Photoshop
+
+Licensed under the GNU General Public License, Version 3.0.
+许可证全文见同目录下的 LICENSE（即本项目整体所用的 GPL-3.0）。
+
+【本项目的修改声明】
+本项目中下列渠道的模型目录、分辨率档位与请求参数取自上述作品，
+并已由本项目作者改写、裁剪以接入本项目的渠道体系：
+
+- SeeDream 4.5 / 5.0 / 5.0 Pro（火山方舟）
+- Nano Banana Pro / Nano Banana 2（Google AI Studio）
+- Grok Imagine 2.0（xAI 官方）
+
+对应实现位于 plugin/lib/provider-models.js、plugin/lib/provider-api.js
+与 plugin/lib/image-generate.js 的渠道生图部分。
+
+【许可证关系】
+来源作品：GNU GPL v3.0
+本项目整体：GNU GPL v3.0
+两者相同，不存在兼容性问题。来源作品本身仍按其原许可证授权，
+其版权不属于本项目作者。
+
+
+====================================================================
+3. 图像对齐算法
+====================================================================
+
+参考自 草鱼 的作品（GPL-3.0）。
+
+说明：该作品原本以 GNU GPL v3.0 授权，但其原仓库现已不可访问，
+因此无法在此给出准确的项目名与地址。GPL-3.0 与本项目整体所用的
+许可证相同，两者不存在兼容性问题。
+
+对应实现：plugin/lib/color-match.service.js 中与「智能对齐」相关的函数
+（estimateTranslation / alignReference / alignmentEnabled 等），以及回贴链路
+里「栅格化后二次对齐」的思路上。
+
+来源作品本身仍按其原许可证授权，其版权不属于本项目作者。
+
+
+====================================================================
+4. ComfyUI（接口与工作流格式参考）
+====================================================================
+
+ComfyUI — https://github.com/comfyanonymous/ComfyUI — GPL-3.0。
+
+本项目中的 ComfyUI 客户端、工作流格式转换与参数表单（plugin/lib/comfy-*.js）
+是依据 ComfyUI 官方 HTTP API 与公开的工作流格式独立实现的；接口行为与
+工作流格式的说明参考了 ComfyUI 官方文档与实现，未直接复制其源代码。
+如后续版本纳入 ComfyUI 源代码，将按 GPL-3.0 条款保留其版权声明。
+
+
+====================================================================
+许可证兼容性总结
+====================================================================
+
+- Apache-2.0 → GPL-3.0：兼容（单向）。
+- GPL-3.0 → GPL-3.0：兼容。
+- 本文件随源分发；按 Apache License 2.0 第 4 条与来源作品的 NOTICE 要求，
+  再分发包含上述代码的版本时，请保留本 NOTICE 与 LICENSE-Apache-2.0.txt。

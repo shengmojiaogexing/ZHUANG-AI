@@ -1,6 +1,12 @@
 /* ============================================================
  * provider-api.js — 生图 / 对话的「供应商请求层」
  *
+ * 【第三方来源声明】各渠道的请求参数与模型用法中，SeeDream 4.5 / 5.0 /
+ * 5.0 Pro、Nano Banana Pro / Nano Banana 2、Grok Imagine 2.0 的相关部分
+ * 取自 Blendrr / AI-Assisted-Image-Editing-for-Photoshop
+ * （Copyright 2026 deewong7，GPL-3.0），并已由本项目作者改写、裁剪。
+ * 完整署名见仓库根目录或同目录的 NOTICE。
+ *
  * 一个文件吃下 10 个渠道的 HTTP 细节，向上只暴露两个方法：
  *   HuanmengProviderApi.generateImage(options)  // 文生图 / 图生图
  *   HuanmengProviderApi.chat(options)           // 文字对话（可带图）

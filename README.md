@@ -66,6 +66,20 @@
 | --- | --- | --- |
 | <img src="docs/screenshots/10-settings-comfy.png" width="240"> | <img src="docs/screenshots/11-settings-generate.png" width="240"> | <img src="docs/ring-preview.png" width="240"> |
 
+## 致谢与第三方组件
+
+本项目的部分模块来自 / 参考了以下开源作品，完整署名与许可证条件见 [NOTICE](NOTICE)：
+
+| 作品 | 作者 | 许可证 | 在本项目中的对应内容 |
+| --- | --- | --- | --- |
+| PixelRunner / 小T修图助手（像素起子） | XIAOTsune | Apache-2.0 | `plugin/lib/glow-engine.js` 辉光 CPU 引擎（照搬并修改） |
+| [Blendrr / AI-Assisted-Image-Editing-for-Photoshop](https://github.com/deewong7/AI-Assisted-Image-Editing-for-Photoshop) | deewong7 | GPL-3.0 | `plugin/lib/provider-models.js` 等文件中 SeeDream / Nano Banana / Grok Imagine 的模型目录、分辨率与请求参数（改写裁剪） |
+| 图像对齐算法 | 草鱼 | GPL-3.0 | `plugin/lib/color-match.service.js` 的智能对齐相关实现（原仓库已不可访问） |
+| [ComfyUI](https://github.com/comfyanonymous/ComfyUI) | ComfyUI 作者 | GPL-3.0 | 接口与工作流格式参考（独立实现，未复制源码） |
+
+- Apache-2.0 来源的许可证全文：[LICENSE-Apache-2.0.txt](LICENSE-Apache-2.0.txt)
+- 再分发包含上述代码的版本时，请保留 [NOTICE](NOTICE) 与 Apache-2.0 许可证副本。
+
 ## 数据与隐私
 
 - API Key 只保存在本机（浏览器 / UXP 的 `localStorage` 或用户目录下的配置文件），不会上传到本仓库或作者服务器。
@@ -88,6 +102,8 @@ python -m http.server 8765
 ## 许可证
 
 本项目以 **GNU General Public License v3.0（GPL-3.0）** 发布，完整条款见 [LICENSE](LICENSE)。
+
+本项目包含的第三方作品署名与许可证条件见 [NOTICE](NOTICE)；其中 Apache-2.0 来源同时附有 [LICENSE-Apache-2.0.txt](LICENSE-Apache-2.0.txt)。
 
 Copyright (C) 2026 ZhuangZe-ZERO (shengmojiaogexing)
 
