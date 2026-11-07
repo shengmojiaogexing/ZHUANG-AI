@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="zhuangLogoTitle">
+    <title id="zhuangLogoTitle">ZHUANG-AI插件 logo</title>
+    <desc>封闭式圆角徽章：白色 Z 字母与 AI 星芒，深绿底色。</desc>
+
+    <defs>
+        <linearGradient id="zg-bg" x1="128" y1="48" x2="392" y2="456" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#1aa25f"/>
+            <stop offset="1" stop-color="#0a5a38"/>
+        </linearGradient>
+        <linearGradient id="zg-sheen" x1="256" y1="24" x2="256" y2="300" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+
+    <!-- 底板：封闭圆角方形（徽章 / 应用图标） -->
+    <rect x="24" y="24" width="464" height="464" rx="116" fill="url(#zg-bg)"/>
+    <rect x="24" y="24" width="464" height="464" rx="116" fill="url(#zg-sheen)"/>
+
+    <!-- 内封边框：让主体收在一个“封闭”的框里 -->
+    <rect x="64" y="64" width="384" height="384" rx="86" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="7"/>
+
+    <!-- 主体：字母 Z -->
+    <g fill="none" stroke="#ffffff" stroke-width="48" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M178 196h164"/>
+        <path d="M342 196 178 330"/>
+        <path d="M178 330h164"/>
+    </g>
+
+    <!-- AI 星芒 -->
+    <path fill="#e9fff2" d="M392 121C392 141.3 400.7 150 421 150C400.7 150 392 158.7 392 179C392 158.7 383.3 150 363 150C383.3 150 392 141.3 392 121Z"/>
+    <path fill="#bfeed4" d="M418 179.5C418 186.85 421.15 190 428.5 190C421.15 190 418 193.15 418 200.5C418 193.15 414.85 190 407.5 190C414.85 190 418 186.85 418 179.5Z"/>
+
+    <!-- 外沿描边：加强封闭边界 -->
+    <rect x="24" y="24" width="464" height="464" rx="116" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
+</svg>

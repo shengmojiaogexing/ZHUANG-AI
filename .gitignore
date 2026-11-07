@@ -1,0 +1,19 @@
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# 构建产物
+.build/
+dist/
+bin/
+obj/
+*.exe
+*.pdb
+*.zip
+
+# 运行数据 / 日志
+history/
+*.log

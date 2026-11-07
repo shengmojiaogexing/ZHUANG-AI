@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZHUANG-AI插件</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="tools.css">
+    <link rel="stylesheet" href="wechat.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="rail">
+            <div class="rail-top">
+                <div class="brand" role="button" tabindex="0" data-page="create" aria-label="回到创作">
+                    <div class="brand-avatar" role="img" aria-label="ZHUANG-AI插件 logo">
+                        <svg class="brand-logo" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                            <rect width="36" height="36" rx="9" fill="#0f7443"/>
+                            <rect x="3.6" y="3.6" width="28.8" height="28.8" rx="6.4" fill="none" stroke="#ffffff" stroke-opacity="0.24" stroke-width="1.1"/>
+                            <g fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M11.4 13.6h13.2"/>
+                                <path d="M24.6 13.6 11.4 23.4"/>
+                                <path d="M11.4 23.4h13.2"/>
+                            </g>
+                            <path fill="#e9fff2" d="M28 6.8C28 8.76 28.84 9.6 30.8 9.6C28.84 9.6 28 10.44 28 12.4C28 10.44 27.16 9.6 25.2 9.6C27.16 9.6 28 8.76 28 6.8Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <nav class="rail-nav" aria-label="主导航">
+                    <div class="rail-item is-active" role="button" tabindex="0" data-page="create" aria-label="创作">
+                        <span class="rail-icon" data-icon="brush"></span>
+                        <span class="rail-label">创作</span>
+                    </div>
+                    <div class="rail-item" role="button" tabindex="0" data-page="chat" aria-label="对话">
+                        <span class="rail-icon" data-icon="chat"></span>
+                        <span class="rail-label">对话</span>
+                    </div>
+                    <div class="rail-item" role="button" tabindex="0" data-page="tools" aria-label="工具">
+                        <span class="rail-icon" data-icon="box"></span>
+                        <span class="rail-label">工具</span>
+                    </div>
+                    <div class="rail-item" role="button" tabindex="0" data-page="comfy" aria-label="ComfyUI">
+                        <span class="rail-icon" data-icon="workflow"></span>
+                        <span class="rail-label">Comfy</span>
+                    </div>
+                    <div class="rail-item" role="button" tabindex="0" data-page="history" aria-label="历史">
+                        <span class="rail-icon" data-icon="history"></span>
+                        <span class="rail-label">历史</span>
+                    </div>
+                    <div class="rail-item" role="button" tabindex="0" data-page="presets" aria-label="预设">
+                        <span class="rail-icon" data-icon="bookmark"></span>
+                        <span class="rail-label">预设</span>
+                    </div>
+                </nav>
+            </div>
+            <div class="rail-bottom">
+                <div class="rail-item" role="button" tabindex="0" data-page="logs" aria-label="日志">
+                    <span class="rail-icon" data-icon="clock"></span>
+                    <span class="rail-label">日志</span>
+                </div>
+                <div class="rail-item" role="button" tabindex="0" data-page="settings" aria-label="设置">
+                    <span class="rail-icon" data-icon="sliders"></span>
+                    <span class="rail-label">设置</span>
+                </div>
+                <div class="rail-ps" id="railPs">
+                    <span class="rail-ps-dot" id="railPsDot"></span>
+                    <span>PS</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div class="topbar-titles">
+                    <div class="topbar-title" id="pageTitle">ZHUANG-AI插件</div>
+                    <div class="topbar-subtitle" id="pageSubtitle">创作 · 选预设，写需求，直接回 PS</div>
+                </div>
+                <div class="connection" id="psBadge" title="Photoshop 连接状态">
+                    <span class="connection-dot"></span>
+                    <span id="psBadgeText">连接中</span>
+                </div>
+            </header>
+
+            <div class="page-host" id="pageHost">
+                <section class="page is-active" id="page-create">
+                    <div class="doc-strip" id="docStrip">
+                        <span class="doc-strip-icon" data-icon="image"></span>
+                        <div class="doc-strip-copy">
+                            <div class="doc-strip-title" id="docTitle">正在读取文档…</div>
+                            <div class="doc-strip-meta" id="docMeta">选区会自动作为参考图</div>
+                        </div>
+                        <div class="icon-btn doc-refresh" id="refreshContext" role="button" tabindex="0" aria-label="读取当前选区">
+                            <span data-icon="refresh"></span>
+                            <span class="doc-refresh-label">读取</span>
+                        </div>
+                    </div>
+
+                    <div class="setup-banner hidden" id="setupBanner">
+                        <span class="setup-dot"></span>
+                        <span class="setup-text">还差一步：填好 API Key 才能生成</span>
+                        <span class="setup-link" role="button" tabindex="0" data-action="goto-settings">去设置</span>
+                    </div>
+
+                    <div class="chat-scroll" id="chatScroll">
+                        <div class="chat-inner" id="chatMessages">
+                            <div class="msg">
+                                <div class="avatar avatar-assistant">Z</div>
+                                <div class="bubble bubble-assistant bubble-intro">
+                                    <div class="bubble-title">点左下角「笑脸」打开预设包，或直接写需求。</div>
+                                    <div class="bubble-text">不用启动幻梦圆环也能直接选；生成的第一张会自动回贴到 Photoshop。</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="composer-wrap">
+                        <div class="preset-drawer hidden" id="presetDrawer"></div>
+                        <div class="composer">
+                            <div class="composer-head">
+                                <div class="preset-chip" id="currentPresetChip" role="button" tabindex="0">
+                                    <span class="preset-chip-icon" data-icon="bookmark"></span>
+                                    <span id="currentPresetName">未选择预设</span>
+                                    <span class="preset-chip-chevron" data-icon="chevronDown"></span>
+                                </div>
+                                <div class="text-link" id="openPresetLibrary" role="button" tabindex="0">预设库</div>
+                            </div>
+                            <div class="prompt-box">
+                                <textarea id="promptInput" class="prompt-input" rows="3" maxlength="1200" placeholder="提示词：描述你想改什么，比如把背景换成雪山，保留人物和光线"></textarea>
+                            </div>
+                            <div class="count-popover hidden" id="countPopover"></div>
+                            <div class="ref-strip hidden" id="refStrip"></div>
+                            <div class="composer-bottom">
+                                <div class="gen-tools" id="genTools">
+                                    <div class="toolbar-btn" id="openPresetDrawer" role="button" tabindex="0" title="预设表情包" aria-label="预设表情包">
+                                        <span data-icon="smile"></span>
+                                    </div>
+                                    <div class="toolbar-btn" id="addReference" role="button" tabindex="0" title="从文件选择参考图（最多 3 张）" aria-label="从文件选择参考图">
+                                        <span data-icon="folder"></span>
+                                    </div>
+                                    <div class="toolbar-btn" id="addSmartReference" role="button" tabindex="0" title="参考图：有选区抓选区，没选区抓整幅画布" aria-label="抓取选区或画布作为参考图">
+                                        <span data-icon="image"></span>
+                                    </div>
+                                    <div class="toolbar-btn" id="modelSettingsIcon" role="button" tabindex="0" title="模型设置" aria-label="模型设置">
+                                        <span data-icon="chip"></span>
+                                    </div>
+                                    <div class="toolbar-btn" id="openCountPopover" role="button" tabindex="0" title="生成数量（1–8 张，可同时生成）" aria-label="生成数量">
+                                        <span data-icon="layers"></span>
+                                        <span class="toolbar-badge" id="countBadge">1</span>
+                                    </div>
+                                </div>
+                                <div class="run-btn" id="runBtn" role="button" tabindex="0">
+                                    <span class="run-btn-icon" data-icon="send"></span>
+                                    <span id="runLabel">运行</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="composer-foot">
+                            <span>Ctrl + Enter 运行</span>
+                            <span id="autoPlaceHint">生成后自动回贴</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="page" id="page-chat">
+                    <div class="chat-scroll" id="chatPageScroll">
+                        <div class="chat-inner" id="chatPageMessages">
+                            <div class="msg">
+                                <div class="avatar avatar-assistant">Z</div>
+                                <div class="bubble bubble-assistant bubble-intro">
+                                    <div class="bubble-title">图上的问题，直接问。</div>
+                                    <div class="bubble-text">可以带当前选区一起发，问配色、构图、修图步骤都行。最近 8 轮会记住。</div>
+                                    <div class="quick-presets" id="chatQuickPrompts">
+                                        <div class="quick-chip" role="button" tabindex="0" data-chat-quick="分析这张图的配色，给出 3 个具体改进方向。">配色分析</div>
+                                        <div class="quick-chip" role="button" tabindex="0" data-chat-quick="这张图的构图问题在哪里？请给出可执行的裁剪或重构建议。">构图建议</div>
+                                        <div class="quick-chip" role="button" tabindex="0" data-chat-quick="按这张图的光线和色调，给一套 Photoshop 修图步骤。">修图步骤</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="composer-wrap">
+                        <div class="composer">
+                            <div class="composer-head">
+                                <div class="model-mini chat-model-label">
+                                    <span class="model-mini-dot"></span>
+                                    <span class="model-mini-name" id="chatModelLabel">Gemini 3.1 Pro</span>
+                                    <span class="model-mini-resolution">对话</span>
+                                </div>
+                                <div class="text-link" id="chatClear" role="button" tabindex="0">清空</div>
+                            </div>
+                            <div class="prompt-box">
+                                <textarea class="prompt-input" id="chatInput" rows="3" maxlength="2000" placeholder="问点具体问题，比如：这张图的肤色为什么偏黄？"></textarea>
+                            </div>
+                            <div class="composer-bottom">
+                                <div class="chat-vision is-on" id="chatVisionToggle" role="button" tabindex="0">
+                                    <span class="chat-vision-icon" data-icon="eye"></span>
+                                    <span>带选区</span>
+                                </div>
+                                <div class="run-btn" id="chatSend" role="button" tabindex="0">
+                                    <span class="run-btn-icon" data-icon="send"></span>
+                                    <span id="chatSendLabel">发送</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="composer-foot">
+                            <span>Ctrl + Enter 发送</span>
+                            <span>多轮记忆 8 轮</span>
+                        </div>
+                    </div>
+                </section>
+                <section class="page" id="page-tools"></section>
+                <section class="page" id="page-tool"></section>
+                <section class="page" id="page-comfy"></section>
+                <section class="page" id="page-history"></section>
+                <section class="page" id="page-presets"></section>
+                <section class="page" id="page-logs"></section>
+                <section class="page" id="page-settings"></section>
+            </div>
+        </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="modal-root" id="modalRoot"></div>
+
+    <script src="js/icons.js"></script>
+    <script src="js/ring-presets.js"></script>
+    <script src="js/data.js"></script>
+    <script src="lib/core.js"></script>
+    <script src="lib/model-config.js"></script>
+    <script src="lib/provider-models.js"></script>
+    <script src="lib/ps-host.js"></script>
+    <script src="lib/provider-api.js"></script>
+    <script src="lib/image-generate.js"></script>
+    <script src="lib/chat-service.js"></script>
+    <script src="lib/color-match.service.js"></script>
+    <script src="lib/auto-color-match.js"></script>
+    <script src="lib/place-image.js"></script>
+    <script src="lib/glow-engine.js"></script>
+    <script src="lib/glow-runner.js"></script>
+    <script src="lib/space-fx-engine.js"></script>
+    <script src="lib/vfx.js"></script>
+    <script src="lib/ai-superres.js"></script>
+    <script src="lib/comfy-client.js"></script>
+    <script src="lib/comfy-convert.js"></script>
+    <script src="lib/comfy-form.js"></script>
+        <script src="js/workflows-builtin.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/log.js"></script>
+    <script src="js/ring-bridge.js"></script>
+    <script src="js/image-tools.js"></script>
+    <script src="js/custom-scroll.js"></script>
+    <script src="js/workspace.js"></script>
+    <script src="js/demo.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+

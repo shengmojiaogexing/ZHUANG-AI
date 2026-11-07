@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="zhuangMarkTitle">
+    <title id="zhuangMarkTitle">ZHUANG-AI插件 标记</title>
+    <desc>透明底的封闭式单色标记：Z 字母、AI 星芒与封闭边框。</desc>
+
+    <!-- 封闭边框 -->
+    <rect x="4" y="4" width="56" height="56" rx="16" fill="none" stroke="#0f7443" stroke-opacity="0.3" stroke-width="2.4"/>
+
+    <!-- 字母 Z -->
+    <g fill="none" stroke="#0f7443" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 24h22"/>
+        <path d="M40 24 18 42"/>
+        <path d="M18 42h22"/>
+    </g>
+
+    <!-- AI 星芒 -->
+    <path fill="#0f7443" d="M48 12C48 16.2 49.8 18 54 18C49.8 18 48 19.8 48 24C48 19.8 46.2 18 42 18C46.2 18 48 16.2 48 12Z"/>
+</svg>
