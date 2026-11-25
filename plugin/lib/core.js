@@ -47,7 +47,7 @@
         grsChatModel: 'grs/gemini-3.1-pro',
         imageModel: 'nano-banana-2.1',
         imageResolution: 'auto',
-        serverApiUrl: 'https://www.syyyy.online',
+        serverApiUrl: '',
         textSystemPromptPositive: '准确理解用户目标，优先给出可直接执行、结构清晰且与当前图像工作流相关的回答。',
         textSystemPromptNegative: '不要编造不存在的接口结果、文件状态或执行结果；不要忽略用户明确的格式、范围和安全约束。',
         imageSystemPromptPositive: '严格遵循用户的编辑目标；存在输入图时优先保持主体身份、姿势、构图、透视与未指定区域不变，输出单张完整成图。',
